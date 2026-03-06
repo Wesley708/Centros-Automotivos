@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Centros Automotivos</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f4f4;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+}
+
+.lugar{
+    background:white;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.lugar:hover{
+    transform:scale(1.02);
+    background:#e8f0ff;
+}
+
+.nome{
+    font-weight:bold;
+}
+
+.endereco{
+    font-size:14px;
+    color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Centros Automotivos</h1>
+
+<div id="lista"></div>
+
+<script>
+const numero = 0 
+const lugares = [
+
+{
+nome: "Auto Center Astro",
+endereco: "R. Pres. Artur da Costa e Silva, 35 - Parque Sao Vicente, Mauá - SP, 09371-490"
+},
+
+{
+nome: "RM Serviços Automotivos - Oficina Mecânica em Santo André",
+endereco: "Av. Pedro Américo, 23 - Box 29/30 - Vila Homero Thon, Santo André - SP, 09110-560"
+},
+{
+nome: "Regional Centro Automotivo",
+endereco: "Av. Itamarati, 3560 - Parque Erasmo Assunção, Santo André - SP, 09271-410"
+},
+{
+nome: "Lab car oficina mecânica",
+endereco: "R. Aníbal, 360 - Vila Homero Thon, Santo André - SP, 09111-210"
+},
+{
+nome: "LMonteiro Centro Automotivo - Serviços Mecânicos",
+endereco: "Av. Valentim Magalhães, 356 - Vila Homero Thon, Santo André - SP, 09120-000"
+},
+{
+nome: "ASP Centro Automotivo",
+endereco: "Av. Cap. Mário Toledo de Camargo, 1369 - Vila Humaita, Santo André - SP, 09110-305"
+},
+{
+nome: "Point S Duda Auto Center",
+endereco: "Av. Queirós Filho, 467 - Parque Industriario, Santo André - SP, 09110-260"
+},
+{
+nome: "Twister Centro Automotivo | Oficina Mecânica",
+endereco: "Av. Queirós Filho, 132 - Parque Industriario, Santo André - SP, 09110-260"
+},
+{
+nome: "Gallo Auto Center",
+endereco: "R. Cruzeiro do Sul, 157 - Vila Leopoldina, Santo André - SP, 09195-220"
+},
+{
+nome: "G3 Auto center",
+endereco: "Av. Dom Pedro I, 1068 - Vila América, Santo André - SP, 09110-000"
+},
+{
+nome: "Alencar Centro Automotivo",
+endereco: "R. das Hortências, 12 - Jardim do Estádio, Santo André - SP, 09175-500"
+},
+{
+nome: "Oficina Mecânica Yoshio Auto Center",
+endereco: "Av. Queirós dos Santos, 1856 - Casa Branca, Santo André - SP, 09015-311"
+}
+
+]
+
+
+const lista = document.getElementById("lista")
+
+
+lugares.forEach((lugar, numero) => {
+
+    const div = document.createElement("div")
+    div.className = "lugar"
+    
+    div.innerHTML = `
+        <div class="nome">${numero + 1} - ${lugar.nome}</div>
+        <div class="endereco">${lugar.endereco}</div>
+    `
+
+    div.onclick = () => {
+
+        const url = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(lugar.endereco)
+
+        window.open(url, "_blank")
+
+    }
+
+    lista.appendChild(div)
+
+})
+
+</script>
+
+</body>
+</html>
