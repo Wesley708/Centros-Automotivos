@@ -1,0 +1,12 @@
+funcional
+
+Login 
+Lista de centros automotivos
+Criar Lista
+
+
+
+Não funcional
+
+Supa base + git pages
+
